@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PasswordManage</title>
+    <link rel="stylesheet" href="https://unpkg.com/98.css">
+    <script src="src/js/crypto-js.js"></script>
+    <!-- 只使用某一种算法的时候，可引入core.js外加单独的js（如md5.js） -->
+    <!-- <script src="crypto-js-4.0.0/core.js"></script> -->
+    <!-- <script src="crypto-js-4.0.0/md5.js"></script> -->
+    <script src="src/js/index.js"></script>
+</head>
+
+<body background="src/img/WallpaperDog-10862742.jpg" style="background-size: cover;">
+
+    <div class="window" style="width: 300px; margin: 100px auto; padding: auto;">
+        <div class="title-bar">
+            <div class="title-bar-text">FormlessData</div>
+            <div class="title-bar-controls">
+                <button aria-label="Minimize"></button>
+                <button aria-label="Maximize"></button>
+                <button aria-label="Close"></button>
+            </div>
+        </div>
+        <form id="password_manage" onsubmit="return mySubmit(this)">
+            <div class="field-row-stacked" style="width: 200px">
+                <label for="domain">域名:</label>
+                <input type="text" id="domain" name="domain" required minlength="4" maxlength="20">
+            </div>
+
+            <div class="field-row-stacked" style="width: 200px">
+                <label for="password">密码:</label>
+                <input type="password" id="password" name="password" required autocomplete="on">
+            </div>
+
+            <div class="field-row-stacked" style="width: 200px">
+                <label for="length">密码长度:</label>
+                <input type="number" id="length" name="length" oninput="if(value>16)value=16;if(value<8)value=8" min="8" max="16"
+                    onkeyup="value=value.replace(/[^\d]/g,'')">
+            </div>
+
+            <div class="field-row-stacked" style="width: 200px">
+                <label for="symbol">字典 :</label>
+                <input type="text" id="symbol" name="symbol">
+            </div>
+            <div class="field-row">
+                <input type="submit" value="生成">
+                <input type="text" value="" id="result">
+            </div>
+
+        </form>
+    </div>
+</body>
+
+</html>
